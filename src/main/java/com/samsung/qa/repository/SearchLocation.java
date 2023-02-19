@@ -47,12 +47,20 @@ public class SearchLocation extends TestBase{
 		
 	}	
 	
+	public String getKeyName() {
+		return keyname;
+	}
+	
 	public Double getLatitude() {
 		return latValue;
 	}
 	
 	public Double getLongitude() {
 		return longValue;
+	}
+	
+	public String toString() {
+		return keyname+" "+latValue+" "+longValue;
 	}
 	
 	
@@ -71,28 +79,28 @@ public class SearchLocation extends TestBase{
 	}
 	
 	
-	public List<SearchLocation> extractCoordinatesList(String keyname){
-		List<SearchLocation> list =new ArrayList<SearchLocation> ();
-		String getCoordinatesURL = driver.getCurrentUrl();
-		
-		double latValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[0]);
-		double longValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[1]);
-		System.out.println(latValue);
-		System.out.println(longValue);
-		SearchLocation l1=new SearchLocation(keyname,latValue,longValue);
-		list.add(l1);
-		return list;
-	}
-	
-//	public Map<String, Double> extractCoordinates(String keyname){
-//		Map<String, Double> map = new HashMap<String, Double>();
+//	public List<SearchLocation> extractCoordinatesList(String keyname){
+//		List<SearchLocation> list =new ArrayList<SearchLocation> ();
 //		String getCoordinatesURL = driver.getCurrentUrl();
+//		
 //		double latValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[0]);
 //		double longValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[1]);
-//		map.put("latitude for :"+keyname, latValue);
-//		map.put("longitude for :"+keyname, longValue);
-//		return map;
+//		System.out.println(latValue);
+//		System.out.println(longValue);
+//		SearchLocation l1=new SearchLocation(keyname,latValue,longValue);
+//		list.add(l1);
+//		return list;
 //	}
+	
+	public Map<String, Double> extractCoordinates(String keyname){
+		Map<String, Double> map = new HashMap<String, Double>();
+		String getCoordinatesURL = driver.getCurrentUrl();
+		double latValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[0]);
+		double longValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[1]);
+		map.put("latitude", latValue);
+		map.put("longitude", longValue);
+		return map;
+	}
 	
 //	public Double getCoordinatesValue(Map<String, Double> m, String keyname){
 //		Double coordinateValue = 0.0;

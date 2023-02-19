@@ -7,7 +7,7 @@
         <methods>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="coordinatesTest"/>
+          <include name="coordinatesTest" invocation-numbers="0"/>
         </methods>
       </class> <!-- com.samsung.qa.testcases.MapSearchTest -->
     </classes>
