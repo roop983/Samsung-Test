@@ -6,8 +6,8 @@
       <class name="com.samsung.qa.testcases.MapSearchTest">
         <methods>
           <include name="tearDown"/>
+          <include name="geolocationCoordinatesTest" invocation-numbers="1"/>
           <include name="setUp"/>
-          <include name="coordinatesTest" invocation-numbers="0 1"/>
         </methods>
       </class> <!-- com.samsung.qa.testcases.MapSearchTest -->
     </classes>

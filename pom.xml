@@ -53,9 +53,42 @@
 			<version>1.0-beta</version>
 		</dependency>
 		
+		<dependency>
+    <groupId>org.codehaus.groovy</groupId>
+    <artifactId>groovy-all</artifactId>
+    <version>3.0.15</version>
+    <type>pom</type>
+</dependency>
 		
+<dependency>
+    <groupId>io.rest-assured</groupId>
+    <artifactId>rest-assured</artifactId>
+    <version>5.3.0</version>
+    <scope>test</scope>
+    <exclusions><!-- https://www.baeldung.com/maven-version-collision -->
+            <exclusion>
+                <groupId>org.apache.groovy</groupId>
+                <artifactId>groovy</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.apache.groovy</groupId>
+                <artifactId>groovy-xml</artifactId>
+            </exclusion>
+            <exclusion>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy</artifactId>
+        </exclusion>
+        </exclusions>
+</dependency>
 
 
+
+
+	<dependency>
+		<groupId>com.ip.httpclient</groupId>
+		<artifactId>geocoding1</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
   </dependencies>
   
   <properties>

@@ -17,6 +17,10 @@ import com.samsung.qa.base.TestBase;
 import com.samsung.qa.repository.SearchLocation;
 import com.samsung.qa.util.TestUtil;
 
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
+
 
 public class MapSearchTest extends TestBase{
 	
@@ -109,6 +113,18 @@ public class MapSearchTest extends TestBase{
 //		}
 //		
 //	}
+	@Test(enabled =false,priority=2, dataProvider="getTestData")
+	public void geolocationCoordinatesTest(String keyname, String latitude, String longitude) {
+		RestAssured.baseURI="https://ipgeolocation.abstractapi.com/";
+		RequestSpecification req= RestAssured.given();
+		Response response = req.get("/v1/?api_key="+prop.getProperty("apikey"));
+		String jsonString = response.getBody().asString();
+		double latValue = response.jsonPath().getDouble("latitude");
+		double longValue = response.jsonPath().getDouble("longitude");
+		Assert.assertEquals(latValue, Double.parseDouble(latitude), "the latitude coordinates doesnt match");
+		Assert.assertEquals(longValue, Double.parseDouble(longitude), "the longitude coordinates doesnt match");
+		
+	}
 	
 	@AfterClass
 	public void tearDown() {

@@ -17,9 +17,7 @@ public class TestUtil {
 	public static String TESTDATA_SHEET_PATH = "/src/main/java/com/samsung/qa/testdata/ExcelTestData1.xlsx";
 	public static Workbook book;
 	public static Sheet sheet;
-//	public static final String URL = "https://www.store.demoqa.com";
-//	public static final String[] stAr={"a", "b"};
-	
+
 
 	public static Object[][] getTestData(String sheetName) throws InvalidFormatException {
 		FileInputStream file = null;

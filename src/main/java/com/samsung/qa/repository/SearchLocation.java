@@ -84,18 +84,18 @@ public class SearchLocation extends TestBase{
 	}
 	
 	
-	public List<SearchLocation> extractCoordinatesList(String keyname){
-		List<SearchLocation> list =new ArrayList<SearchLocation> ();
-		String getCoordinatesURL = driver.getCurrentUrl();
-		
-		double latValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[0]);
-		double longValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[1]);
-		System.out.println(latValue);
-		System.out.println(longValue);
-		SearchLocation l1=new SearchLocation(keyname,latValue,longValue);
-		list.add(l1);
-		return list;
-	}
+//	public List<SearchLocation> extractCoordinatesList(String keyname){
+//		List<SearchLocation> list =new ArrayList<SearchLocation> ();
+//		String getCoordinatesURL = driver.getCurrentUrl();
+//		
+//		double latValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[0]);
+//		double longValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[1]);
+//		System.out.println(latValue);
+//		System.out.println(longValue);
+//		SearchLocation l1=new SearchLocation(keyname,latValue,longValue);
+//		list.add(l1);
+//		return list;
+//	}
 	
 	public Map<String, Double> extractCoordinates(String keyname){
 		Map<String, Double> map = new HashMap<String, Double>();
@@ -106,6 +106,8 @@ public class SearchLocation extends TestBase{
 		map.put("longitude", longValue);
 		return map;
 	}
+	
+	
 	
 //	public Double getCoordinatesValue(Map<String, Double> m, String keyname){
 //		Double coordinateValue = 0.0;
