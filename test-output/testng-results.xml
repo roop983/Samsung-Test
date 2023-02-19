@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-02-18T16:29:58 GMT-08:00" name="Default suite" finished-at="2023-02-18T16:35:59 GMT-08:00" duration-ms="360903">
+    <groups>
+    </groups>
+    <test started-at="2023-02-18T16:29:58 GMT-08:00" name="Default test" finished-at="2023-02-18T16:35:59 GMT-08:00" duration-ms="360903">
+      <class name="com.samsung.qa.testcases.MapSearchTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.samsung.qa.testcases.MapSearchTest@1a6d8329]" started-at="2023-02-18T16:29:58 GMT-08:00" name="setUp" finished-at="2023-02-18T16:30:04 GMT-08:00" duration-ms="6207" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="coordinatesTest(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.samsung.qa.testcases.MapSearchTest@1a6d8329]" started-at="2023-02-18T16:30:05 GMT-08:00" name="coordinatesTest" data-provider="getTestData" finished-at="2023-02-18T16:35:59 GMT-08:00" duration-ms="353672" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[99 Ranch Market Fremont Boulevard]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[37.575346]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[-122.0413917]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- coordinatesTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.samsung.qa.testcases.MapSearchTest@1a6d8329]" started-at="2023-02-18T16:35:59 GMT-08:00" name="tearDown" finished-at="2023-02-18T16:35:59 GMT-08:00" duration-ms="240" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.samsung.qa.testcases.MapSearchTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
