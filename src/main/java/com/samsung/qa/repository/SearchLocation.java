@@ -28,6 +28,11 @@ public class SearchLocation extends TestBase{
 	@FindBy(xpath="//button[@id='searchbox-searchbutton']")
 	WebElement searchButton;
 	
+	
+	@FindBy(xpath="//button[@data-value='Directions']")
+	WebElement directions;
+	
+	
 	String keyname;
 	Double latValue;
 	Double longValue;
@@ -35,8 +40,14 @@ public class SearchLocation extends TestBase{
 	
 	public SearchLocation() {
 		this.driver = driver;
-		this.wait = wait;
+		//this.wait = wait;
 		PageFactory.initElements(driver, this);
+		wait = new FluentWait<WebDriver>(driver)
+				// Check for condition in every 2 seconds
+				.pollingEvery(Duration.ofSeconds(2))
+				// Till time out i.e. 30 seconds
+				.withTimeout(Duration.ofSeconds(30))
+				.ignoring(NoSuchElementException.class);
 		
 	}	
 	
@@ -65,32 +76,26 @@ public class SearchLocation extends TestBase{
 	
 	
 	public void searchPlace(String searchValue) {
-		//Thread.sleep(5000);
 		driver.get(prop.getProperty("url"));
-		wait = new FluentWait<WebDriver>(driver)
-				// Check for condition in every 2 seconds
-				.pollingEvery(Duration.ofSeconds(2))
-				// Till time out i.e. 30 seconds
-				.withTimeout(Duration.ofSeconds(30))
-				.ignoring(NoSuchElementException.class);
 		wait.until(ExpectedConditions.elementToBeClickable(toSearchBoxInput));
 		toSearchBoxInput.sendKeys(searchValue);
 		searchButton.click();
+		wait.until(ExpectedConditions.elementToBeClickable(directions));
 	}
 	
 	
-//	public List<SearchLocation> extractCoordinatesList(String keyname){
-//		List<SearchLocation> list =new ArrayList<SearchLocation> ();
-//		String getCoordinatesURL = driver.getCurrentUrl();
-//		
-//		double latValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[0]);
-//		double longValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[1]);
-//		System.out.println(latValue);
-//		System.out.println(longValue);
-//		SearchLocation l1=new SearchLocation(keyname,latValue,longValue);
-//		list.add(l1);
-//		return list;
-//	}
+	public List<SearchLocation> extractCoordinatesList(String keyname){
+		List<SearchLocation> list =new ArrayList<SearchLocation> ();
+		String getCoordinatesURL = driver.getCurrentUrl();
+		
+		double latValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[0]);
+		double longValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[1]);
+		System.out.println(latValue);
+		System.out.println(longValue);
+		SearchLocation l1=new SearchLocation(keyname,latValue,longValue);
+		list.add(l1);
+		return list;
+	}
 	
 	public Map<String, Double> extractCoordinates(String keyname){
 		Map<String, Double> map = new HashMap<String, Double>();
