@@ -33,10 +33,6 @@ public class SearchLocation extends TestBase{
 	WebElement directions;
 	
 	
-	String keyname;
-	Double latValue;
-	Double longValue;
-	
 	
 	public SearchLocation() {
 		this.driver = driver;
@@ -51,29 +47,6 @@ public class SearchLocation extends TestBase{
 		
 	}	
 	
-	public SearchLocation(String keyname, Double latValue, Double longValue) {
-		this.keyname=keyname;
-		this.latValue=latValue;
-		this.longValue=longValue;
-		
-	}	
-	
-	public String getKeyName() {
-		return keyname;
-	}
-	
-	public Double getLatitude() {
-		return latValue;
-	}
-	
-	public Double getLongitude() {
-		return longValue;
-	}
-	
-	public String toString() {
-		return keyname+" "+latValue+" "+longValue;
-	}
-	
 	
 	public void searchPlace(String searchValue) {
 		driver.get(prop.getProperty("url"));
@@ -83,19 +56,6 @@ public class SearchLocation extends TestBase{
 		wait.until(ExpectedConditions.elementToBeClickable(directions));
 	}
 	
-	
-//	public List<SearchLocation> extractCoordinatesList(String keyname){
-//		List<SearchLocation> list =new ArrayList<SearchLocation> ();
-//		String getCoordinatesURL = driver.getCurrentUrl();
-//		
-//		double latValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[0]);
-//		double longValue = Double.parseDouble(getCoordinatesURL.substring(getCoordinatesURL.indexOf('@')+1, getCoordinatesURL.lastIndexOf('/')).split(",")[1]);
-//		System.out.println(latValue);
-//		System.out.println(longValue);
-//		SearchLocation l1=new SearchLocation(keyname,latValue,longValue);
-//		list.add(l1);
-//		return list;
-//	}
 	
 	public Map<String, Double> extractCoordinates(String keyname){
 		Map<String, Double> map = new HashMap<String, Double>();
@@ -107,17 +67,6 @@ public class SearchLocation extends TestBase{
 		return map;
 	}
 	
-	
-	
-//	public Double getCoordinatesValue(Map<String, Double> m, String keyname){
-//		Double coordinateValue = 0.0;
-//		for (Map.Entry<String, Double> mEntry :  m.entrySet()) {
-//			if (mEntry.getKey().contains(keyname)) {
-//				coordinateValue = mEntry.getValue();
-//			}
-//		}
-//		return coordinateValue;
-//	}
 
 
 	
