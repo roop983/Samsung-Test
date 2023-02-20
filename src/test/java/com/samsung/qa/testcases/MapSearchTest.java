@@ -12,6 +12,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.samsung.qa.base.TestBase;
 import com.samsung.qa.repository.SearchLocation;
@@ -27,6 +28,7 @@ public class MapSearchTest extends TestBase{
 	SearchLocation searchLocation;
 	TestUtil testUtil;
 	String sheetName = "CoordinateDetails";
+	SoftAssert softAssert= new SoftAssert();
 	
 	public MapSearchTest(){
 		super();
@@ -73,7 +75,7 @@ public class MapSearchTest extends TestBase{
 //	}
 	
 	
-	@Test(priority=1, dataProvider="getTestData")  // Add User Test
+	@Test(enabled =false,priority=1, dataProvider="getTestData")  // Add User Test
 	public void coordinatesTest(String keyname, String latitude, String longitude) {
 		try {
 		searchLocation.searchPlace(keyname);
@@ -113,7 +115,7 @@ public class MapSearchTest extends TestBase{
 //		}
 //		
 //	}
-	@Test(enabled =false,priority=2, dataProvider="getTestData")
+	@Test(enabled =true,priority=1, dataProvider="getTestData")
 	public void geolocationCoordinatesTest(String keyname, String latitude, String longitude) {
 		RestAssured.baseURI="https://ipgeolocation.abstractapi.com/";
 		RequestSpecification req= RestAssured.given();
@@ -121,8 +123,9 @@ public class MapSearchTest extends TestBase{
 		String jsonString = response.getBody().asString();
 		double latValue = response.jsonPath().getDouble("latitude");
 		double longValue = response.jsonPath().getDouble("longitude");
-		Assert.assertEquals(latValue, Double.parseDouble(latitude), "the latitude coordinates doesnt match");
-		Assert.assertEquals(longValue, Double.parseDouble(longitude), "the longitude coordinates doesnt match");
+		softAssert.assertEquals(latValue, Double.parseDouble(latitude), "the latitude coordinates doesnt match");
+		softAssert.assertEquals(longValue, Double.parseDouble(longitude), "the longitude coordinates doesnt match");
+		softAssert.assertAll();
 		
 	}
 	

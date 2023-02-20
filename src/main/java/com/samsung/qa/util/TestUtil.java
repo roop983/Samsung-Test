@@ -14,7 +14,7 @@ public class TestUtil {
 
 	public static long PAGE_LOAD_TIMEOUT = 25;
 	public static long IMPLICIT_WAIT = 20;
-	public static String TESTDATA_SHEET_PATH = "/src/main/java/com/samsung/qa/testdata/ExcelTestData1.xlsx";
+	public static String TESTDATA_SHEET_PATH = "/src/main/java/com/samsung/qa/testdata/ExcelTestData11.xlsx";
 	public static Workbook book;
 	public static Sheet sheet;
 

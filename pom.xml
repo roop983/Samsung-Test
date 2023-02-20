@@ -81,14 +81,6 @@
         </exclusions>
 </dependency>
 
-
-
-
-	<dependency>
-		<groupId>com.ip.httpclient</groupId>
-		<artifactId>geocoding1</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
   </dependencies>
   
   <properties>
