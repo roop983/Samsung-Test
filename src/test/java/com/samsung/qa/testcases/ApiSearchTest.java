@@ -19,17 +19,20 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 public class ApiSearchTest extends TestBase{
+	//Declare objects of repository and test util classes to be used later in the class
+	//Initialize Sheetname having test data
 	TestUtil testUtil;
 	String sheetName = "ApiCoordinateDetails";
 	SoftAssert softAssert;
 	
-	
+	//Initialize objects of the required classes to access their methods
 	@BeforeClass
 	public void setUp() {
 		testUtil = new TestUtil();
 		softAssert = new SoftAssert();
 	}
 	
+	//Used for storing cell value from the test data sheet
 	@DataProvider
 	public Object[][] getTestData() throws InvalidFormatException{
 		Object data[][] = TestUtil.getTestData(sheetName);

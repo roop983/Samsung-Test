@@ -11,14 +11,14 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class TestUtil {
 	
-
+	//Initialize  Timeout values and TestData sheet directory path
 	public static long PAGE_LOAD_TIMEOUT = 25;
 	public static long IMPLICIT_WAIT = 20;
 	public static String TESTDATA_SHEET_PATH = "/src/main/java/com/samsung/qa/testdata/ExcelTestData3.xlsx";
 	public static Workbook book;
 	public static Sheet sheet;
 
-
+	//Utility for extracting data from cell and storing in Object array
 	public static Object[][] getTestData(String sheetName) throws InvalidFormatException {
 		FileInputStream file = null;
 		try {

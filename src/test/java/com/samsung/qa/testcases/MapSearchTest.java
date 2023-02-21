@@ -24,7 +24,8 @@ import io.restassured.specification.RequestSpecification;
 
 
 public class MapSearchTest extends TestBase{
-	
+	///Declare objects of repository and test util classes to be used later in the current class
+	//Initialize Sheetname having test data
 	SearchLocation searchLocation;
 	TestUtil testUtil;
 	String sheetName = "MapsCoordinateDetails";
@@ -35,6 +36,7 @@ public class MapSearchTest extends TestBase{
 		super();
 	}
 	
+	//Invoke Parent class initialize method for driver setup and initialize objects of the required classes to access their methods
 	@BeforeClass
 	public void setUp() {
 		initialization();
@@ -42,7 +44,7 @@ public class MapSearchTest extends TestBase{
 		testUtil = new TestUtil();
 		softAssert = new SoftAssert();
 	}
-	
+	//Used for storing cell value from the test data sheet
 	@DataProvider
 	public Object[][] getTestData() throws InvalidFormatException{
 		Object data[][] = TestUtil.getTestData(sheetName);
@@ -68,6 +70,7 @@ public class MapSearchTest extends TestBase{
 		
 	}
 	
+	//Close the driver window
 	@AfterClass
 	public void tearDown() {
 		driver.quit();
