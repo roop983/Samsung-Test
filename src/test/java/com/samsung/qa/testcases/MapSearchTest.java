@@ -55,10 +55,16 @@ public class MapSearchTest extends TestBase{
 	@Test(priority=1, dataProvider="getTestData")  
 	public void coordinatesTest(String keyname, String latitude, String longitude) {
 		try {
+			
+		// Search for the place in google maps
 		searchLocation.searchPlace(keyname);
+		
+		//Extract coordinates and store in a map
 		Map<String, Double> map = searchLocation.extractCoordinates(keyname);
 		double latitudeValue = map.get("latitude");
 		double longitudeValue = map.get("longitude");
+		
+		//Assert to validate against the expected coordinates values
 		Assert.assertEquals(latitudeValue, Double.parseDouble(latitude), "the latitude coordinates doesnt match");
 		Assert.assertEquals(longitudeValue, Double.parseDouble(longitude), "the longitude coordinates doesnt match");
 		}
