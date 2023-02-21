@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.samsung.qa.testcases.MapSearchTest">
+      <class name="com.samsung.qa.testcases.ApiSearchTest">
         <methods>
-          <include name="tearDown"/>
           <include name="geolocationCoordinatesTest" invocation-numbers="1"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- com.samsung.qa.testcases.MapSearchTest -->
+      </class> <!-- com.samsung.qa.testcases.ApiSearchTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

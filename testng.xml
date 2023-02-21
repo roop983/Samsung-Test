@@ -9,7 +9,7 @@
 
 	<test name="Samsung Challenge Test Case">
 		<classes>
-			
+			<class name="com.samsung.qa.testcases.ApiSearchTest"></class>
 			<class name="com.samsung.qa.testcases.MapSearchTest"></class>
 		</classes>
 	</test>

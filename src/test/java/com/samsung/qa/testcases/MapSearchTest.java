@@ -30,8 +30,8 @@ public class MapSearchTest extends TestBase{
 	
 	SearchLocation searchLocation;
 	TestUtil testUtil;
-	String sheetName = "CoordinateDetails";
-	SoftAssert softAssert= new SoftAssert();
+	String sheetName = "MapsCoordinateDetails";
+	SoftAssert softAssert;
 	
 	
 	public MapSearchTest(){
@@ -43,6 +43,7 @@ public class MapSearchTest extends TestBase{
 		initialization();
 		searchLocation=new SearchLocation();
 		testUtil = new TestUtil();
+		softAssert = new SoftAssert();
 	}
 	
 	@DataProvider
@@ -51,8 +52,8 @@ public class MapSearchTest extends TestBase{
 		return data;
 	}
 	
-	
-	@Test(enabled =true,priority=1, dataProvider="getTestData")  // Add User Test
+	//Google Maps Search Test
+	@Test(priority=1, dataProvider="getTestData")  
 	public void coordinatesTest(String keyname, String latitude, String longitude) {
 		try {
 		searchLocation.searchPlace(keyname);
@@ -67,21 +68,6 @@ public class MapSearchTest extends TestBase{
 			System.out.println(e.getMessage());
 			System.out.println(e.getStackTrace());
 		}
-		
-	}
-	
-	
-	@Test(enabled =false,priority=1, dataProvider="getTestData")
-	public void geolocationCoordinatesTest(String keyname, String latitude, String longitude) {
-		RestAssured.baseURI="https://ipgeolocation.abstractapi.com/";
-		RequestSpecification req= RestAssured.given();
-		Response response = req.get("/v1/?api_key="+prop.getProperty("apikey"));
-		String jsonString = response.getBody().asString();
-		double latValue = response.jsonPath().getDouble("latitude");
-		double longValue = response.jsonPath().getDouble("longitude");
-		softAssert.assertEquals(latValue, Double.parseDouble(latitude), "the latitude coordinates doesnt match");
-		softAssert.assertEquals(longValue, Double.parseDouble(longitude), "the longitude coordinates doesnt match");
-		softAssert.assertAll();
 		
 	}
 	

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="3" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-20T09:54:19 GMT-08:00" name="Samsung Test Automation Suite" finished-at="2023-02-20T09:55:11 GMT-08:00" duration-ms="51820">
+  <suite started-at="2023-02-20T21:36:17 GMT-08:00" name="Default suite" finished-at="2023-02-20T21:36:23 GMT-08:00" duration-ms="5874">
     <groups>
     </groups>
-    <test started-at="2023-02-20T09:54:19 GMT-08:00" name="Samsung Challenge Test Case" finished-at="2023-02-20T09:55:11 GMT-08:00" duration-ms="51820">
-      <class name="com.samsung.qa.testcases.MapSearchTest">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:com.samsung.qa.testcases.MapSearchTest@3e08ff24]" started-at="2023-02-20T09:54:19 GMT-08:00" name="setUp" finished-at="2023-02-20T09:54:27 GMT-08:00" duration-ms="8465" status="PASS">
+    <test started-at="2023-02-20T21:36:17 GMT-08:00" name="Default test" finished-at="2023-02-20T21:36:23 GMT-08:00" duration-ms="5874">
+      <class name="com.samsung.qa.testcases.ApiSearchTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:com.samsung.qa.testcases.ApiSearchTest@6e9a5ed8]" started-at="2023-02-20T21:36:17 GMT-08:00" name="setUp" finished-at="2023-02-20T21:36:17 GMT-08:00" duration-ms="14" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="coordinatesTest(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.samsung.qa.testcases.MapSearchTest@3e08ff24]" started-at="2023-02-20T09:54:28 GMT-08:00" name="coordinatesTest" data-provider="getTestData" finished-at="2023-02-20T09:55:03 GMT-08:00" duration-ms="35061" status="PASS">
+        <test-method signature="geolocationCoordinatesTest(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.samsung.qa.testcases.ApiSearchTest@6e9a5ed8]" started-at="2023-02-20T21:36:19 GMT-08:00" name="geolocationCoordinatesTest" data-provider="getTestData" finished-at="2023-02-20T21:36:22 GMT-08:00" duration-ms="3642" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -20,19 +20,19 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[37.575346]]>
+                <![CDATA[37.5281]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[-122.0413917]]>
+                <![CDATA[-121.9732]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- coordinatesTest -->
-        <test-method signature="coordinatesTest(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.samsung.qa.testcases.MapSearchTest@3e08ff24]" started-at="2023-02-20T09:55:03 GMT-08:00" name="coordinatesTest" data-provider="getTestData" finished-at="2023-02-20T09:55:11 GMT-08:00" duration-ms="7379" status="PASS">
+        </test-method> <!-- geolocationCoordinatesTest -->
+        <test-method signature="geolocationCoordinatesTest(java.lang.String,java.lang.String,java.lang.String)[pri:1, instance:com.samsung.qa.testcases.ApiSearchTest@6e9a5ed8]" started-at="2023-02-20T21:36:22 GMT-08:00" name="geolocationCoordinatesTest" data-provider="getTestData" finished-at="2023-02-20T21:36:23 GMT-08:00" duration-ms="736" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -50,14 +50,54 @@
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[The following asserts failed:
+the latitude coordinates doesnt match expected [37.5704131] but found [37.5281],
+the longitude coordinates doesnt match expected [-122.0401191] but found [-121.9732]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: The following asserts failed:
+the latitude coordinates doesnt match expected [37.5704131] but found [37.5281],
+the longitude coordinates doesnt match expected [-122.0401191] but found [-121.9732]
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
+at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
+at com.samsung.qa.testcases.ApiSearchTest.geolocationCoordinatesTest(ApiSearchTest.java:54)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:677)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:221)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:969)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:194)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:829)
+at org.testng.TestRunner.run(TestRunner.java:602)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:437)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:431)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:391)
+at org.testng.SuiteRunner.run(SuiteRunner.java:330)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1256)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1176)
+at org.testng.TestNG.runSuites(TestNG.java:1099)
+at org.testng.TestNG.run(TestNG.java:1067)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- coordinatesTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:com.samsung.qa.testcases.MapSearchTest@3e08ff24]" started-at="2023-02-20T09:55:11 GMT-08:00" name="tearDown" finished-at="2023-02-20T09:55:11 GMT-08:00" duration-ms="135" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- com.samsung.qa.testcases.MapSearchTest -->
-    </test> <!-- Samsung Challenge Test Case -->
-  </suite> <!-- Samsung Test Automation Suite -->
+        </test-method> <!-- geolocationCoordinatesTest -->
+      </class> <!-- com.samsung.qa.testcases.ApiSearchTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
