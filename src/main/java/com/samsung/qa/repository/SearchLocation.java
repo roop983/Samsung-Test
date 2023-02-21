@@ -47,7 +47,7 @@ public class SearchLocation extends TestBase{
 		
 	}	
 	
-	
+	//Method to search for the desired location
 	public void searchPlace(String searchValue) {
 		driver.get(prop.getProperty("url"));
 		wait.until(ExpectedConditions.elementToBeClickable(toSearchBoxInput));
@@ -56,7 +56,7 @@ public class SearchLocation extends TestBase{
 		wait.until(ExpectedConditions.elementToBeClickable(directions));
 	}
 	
-	
+	//Method to extract the coordinates after Maps Search is completed
 	public Map<String, Double> extractCoordinates(String keyname){
 		Map<String, Double> map = new HashMap<String, Double>();
 		String getCoordinatesURL = driver.getCurrentUrl();

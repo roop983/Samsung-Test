@@ -44,6 +44,7 @@ public class MapSearchTest extends TestBase{
 		testUtil = new TestUtil();
 		softAssert = new SoftAssert();
 	}
+	
 	//Used for storing cell value from the test data sheet
 	@DataProvider
 	public Object[][] getTestData() throws InvalidFormatException{
